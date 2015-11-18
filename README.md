@@ -1,4 +1,4 @@
-# babel-preset-react
+# babel-preset-airbnb
 
 > A babel preset for transforming your JavaScript for Airbnb.
 

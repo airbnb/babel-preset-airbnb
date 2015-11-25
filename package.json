@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-airbnb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A babel preset for transforming your JavaScript for Airbnb",
   "main": "index.js",
   "author": "Josh Perez <josh.perez@airbnb.com>",

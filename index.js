@@ -8,5 +8,6 @@ module.exports = {
     require('babel-plugin-transform-es3-member-expression-literals'),
     require('babel-plugin-transform-es3-property-literals'),
     require('babel-plugin-transform-jscript'),
+    require('babel-plugin-transform-exponentiation-operator'),
   ],
 };

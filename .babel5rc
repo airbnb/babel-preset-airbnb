@@ -16,6 +16,7 @@
     "es6.regex.unicode",
     "es7.exponentiationOperator",
     "es7.trailingFunctionCommas",
+    "es7.objectRestSpread",
     "react"
   ]
 }

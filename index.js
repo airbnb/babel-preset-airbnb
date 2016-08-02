@@ -9,5 +9,6 @@ module.exports = {
     require('babel-plugin-transform-es3-property-literals'),
     require('babel-plugin-transform-jscript'),
     require('babel-plugin-transform-exponentiation-operator'),
+    require('babel-plugin-syntax-trailing-function-commas'),
   ],
 };

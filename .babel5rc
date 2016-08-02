@@ -15,6 +15,7 @@
     "es6.templateLiterals",
     "es6.regex.unicode",
     "es7.exponentiationOperator",
+    "es7.trailingFunctionCommas",
     "react"
   ]
 }

@@ -10,6 +10,6 @@ module.exports = {
     require('babel-plugin-transform-jscript'),
     require('babel-plugin-transform-exponentiation-operator'),
     require('babel-plugin-syntax-trailing-function-commas'),
-    require('babel-plugin-transform-object-rest-spread'),
+    [require('babel-plugin-transform-object-rest-spread'), { useBuiltIns: true }],
   ],
 };

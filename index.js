@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = (context, options) => {
-  let preset;
+module.exports = function buildAirbnbPreset(context, options) {
+  var preset; // eslint-disable-line no-var
   if (options && options.modules === false) {
     preset = require('babel-preset-es2015').buildPreset(null, { modules: false });
   } else {

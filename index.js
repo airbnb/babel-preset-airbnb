@@ -1,3 +1,5 @@
+/* eslint-disable no-var, prefer-template, comma-dangle */
+
 'use strict';
 
 module.exports = function buildAirbnbPreset(context, options) {
@@ -7,16 +9,10 @@ module.exports = function buildAirbnbPreset(context, options) {
   // https://github.com/babel/babel/issues/4539
   // https://github.com/facebookincubator/create-react-app/issues/720
   // It’s also nice that we can enforce `NODE_ENV` being specified.
-  var env = process.env.BABEL_ENV || process.env.NODE_ENV;
-  if (env !== 'development' && env !== 'test' && env !== 'production') {
-    throw new Error(
-      'Using `babel-preset-airbnb` requires that you specify `NODE_ENV` or '+
-      '`BABEL_ENV` environment variables. Valid values are "development", ' +
-      '"test", and "production". Instead, received: ' + JSON.stringify(env) + '.'
-    );
-  }
+  var env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development';
 
   var allPlugins = [
+    [require('babel-plugin-transform-es2015-block-scoping'), { throwIfClosureRequired: true }],
     [require('babel-plugin-transform-es2015-template-literals'), { spec: true }],
     require('babel-plugin-transform-es3-member-expression-literals'),
     require('babel-plugin-transform-es3-property-literals'),

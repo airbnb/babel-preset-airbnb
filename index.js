@@ -4,6 +4,12 @@ module.exports = function buildAirbnbPreset(context, options) {
   var preset; // eslint-disable-line no-var
   if (options && options.modules === false) {
     preset = require('babel-preset-es2015').buildPreset(null, { modules: false });
+  } else if (options && options.node === true) {
+    preset = require('babel-preset-env').default(null, {
+      targets: {
+        node: '6.10.2',
+      },
+    });
   } else {
     preset = require('babel-preset-es2015-without-strict');
   }

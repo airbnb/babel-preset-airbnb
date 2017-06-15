@@ -1,6 +1,23 @@
 'use strict';
 
+const browsers = [
+  'Chrome >= 35',
+  'Explorer >= 9',
+  'Firefox >= 52',
+  'Safari >= 8',
+];
+
+function setNodeVersion(version) {
+  if (typeof version !== 'string' && version !== true) {
+    throw new TypeError('`node` must either be `true` or a string');
+  }
+  return version === true ? '6.10.2' : version;
+}
+
 module.exports = function buildAirbnbPreset(context, options) {
+  const targets = options.node
+    ? { node: setNodeVersion(options.node) }
+    : { browsers };
   return {
     presets: [
       require('babel-preset-env').default(null, {
@@ -11,14 +28,7 @@ module.exports = function buildAirbnbPreset(context, options) {
           'transform-regenerator',
         ],
         modules: false,
-        targets: {
-          browsers: [
-            'Chrome >= 35',
-            'Explorer >= 9',
-            'Firefox >= 52',
-            'Safari >= 8',
-          ],
-        },
+        targets,
       }),
       require('babel-preset-react'),
     ],

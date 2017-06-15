@@ -1,25 +1,42 @@
 'use strict';
 
 module.exports = function buildAirbnbPreset(context, options) {
-  var preset; // eslint-disable-line no-var
-  if (options && options.modules === false) {
-    preset = require('babel-preset-es2015').buildPreset(null, { modules: false });
-  } else {
-    preset = require('babel-preset-es2015-without-strict');
-  }
   return {
     presets: [
-      preset,
+      require('babel-preset-env').default(null, {
+        debug: true,
+        exclude: [
+          'transform-async-to-generator',
+          'transform-es2015-template-literals',
+          'transform-regenerator',
+        ],
+        modules: false,
+        targets: {
+          browsers: [
+            'Chrome >= 35',
+            'Explorer >= 9',
+            'Firefox >= 52',
+            'Safari >= 8',
+          ],
+        },
+      }),
       require('babel-preset-react'),
     ],
     plugins: [
-      [require('babel-plugin-transform-es2015-template-literals'), { spec: true }],
+      options && options.modules === false ? null : (
+        [require("babel-plugin-transform-es2015-modules-commonjs"), {
+          strict: false,
+        }]
+      ),
+      [require('babel-plugin-transform-es2015-template-literals'), {
+        spec: true,
+      }],
       require('babel-plugin-transform-es3-member-expression-literals'),
       require('babel-plugin-transform-es3-property-literals'),
       require('babel-plugin-transform-jscript'),
-      require('babel-plugin-transform-exponentiation-operator'),
-      require('babel-plugin-syntax-trailing-function-commas'),
-      [require('babel-plugin-transform-object-rest-spread'), { useBuiltIns: true }],
-    ],
+      [require('babel-plugin-transform-object-rest-spread'), {
+        useBuiltIns: true,
+      }],
+    ].filter(Boolean),
   };
 };

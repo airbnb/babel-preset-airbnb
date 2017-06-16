@@ -41,3 +41,50 @@ require("babel-core").transform("code", {
   presets: ["airbnb"]
 });
 ```
+
+### Targeting Environments
+
+This module uses babel-preset-env to target specific environments.
+
+Please refer to [babel-preset-env#targets](https://github.com/babel/babel-preset-env#targets) for a list of available options.
+
+For a list of browsers please see [browserlist](https://github.com/ai/browserslist).
+
+You may override our default list of targets by providing your own `targets` key.
+
+```json
+{
+  "presets": [["airbnb", {
+    "targets": {
+      "chrome": 50,
+      "explorer": 11,
+      "firefox": 45
+    }
+  }]]
+}
+```
+
+The following transpiles only for Node v6.
+
+```json
+{
+  "presets": [["airbnb", {
+    "targets": {
+      "node": 6
+    }
+  }]]
+}
+```
+
+If you wish, you can also inherit our default list of browsers and extend them using `additionalTargets`.
+
+```json
+{
+  "presets": [["airbnb", {
+    "additionalTargets": {
+      "chrome": 42,
+      "explorer": 8
+    }
+  }]]
+}
+```

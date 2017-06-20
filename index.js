@@ -21,7 +21,8 @@ function buildTargets(options) {
 }
 
 module.exports = function buildAirbnbPreset(context, options) {
-  var targets = (options && options.targets) || buildTargets(options || {});
+  var transpileTargets = (options && options.targets) ||
+    buildTargets(options || {});
 
   return {
     presets: [
@@ -33,7 +34,7 @@ module.exports = function buildAirbnbPreset(context, options) {
           'transform-regenerator',
         ],
         modules: false,
-        targets,
+        targets: transpileTargets,
       }),
       require('babel-preset-react'),
     ],

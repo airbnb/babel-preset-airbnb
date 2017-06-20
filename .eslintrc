@@ -1,6 +1,8 @@
 {
   "root": true,
 
+  "ecmaVersion": 5,
+
   "extends": "airbnb-base",
 
   "rules": {

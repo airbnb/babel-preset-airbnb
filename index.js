@@ -19,7 +19,7 @@ function buildTargets(options) {
 }
 
 module.exports = function buildAirbnbPreset(context, options) {
-  const targets = (options && options.targets) || buildTargets(options);
+  const targets = (options && options.targets) || buildTargets(options || {});
 
   return {
     presets: [

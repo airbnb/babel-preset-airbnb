@@ -1,10 +1,12 @@
 'use strict';
 
-const modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
+var assign = require('object.assign');
+
+var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
   strict: false,
 }];
 
-const defaultTargets = {
+var defaultTargets = {
   android: 30,
   chrome: 35,
   edge: 14,
@@ -15,11 +17,11 @@ const defaultTargets = {
 };
 
 function buildTargets(options) {
-  return Object.assign({}, defaultTargets, options.additionalTargets);
+  return assign({}, defaultTargets, options.additionalTargets);
 }
 
 module.exports = function buildAirbnbPreset(context, options) {
-  const targets = (options && options.targets) || buildTargets(options || {});
+  var targets = (options && options.targets) || buildTargets(options || {});
 
   return {
     presets: [

@@ -88,3 +88,13 @@ If you wish, you can also inherit our default list of browsers and extend them u
   }]]
 }
 ```
+
+You may override our default debug option by providing your own `debug` key.
+
+```json
+{
+  "presets": [["airbnb", {
+    "debug": true
+  }]]
+}
+```

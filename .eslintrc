@@ -1,9 +1,7 @@
 {
   "root": true,
 
-  "ecmaVersion": 5,
-
-  "extends": "airbnb-base",
+  "extends": "airbnb-base/legacy",
 
   "rules": {
     "global-require": 0,
@@ -11,6 +9,7 @@
     "strict": ["error", "global"]
   },
   "parserOptions": {
-    "sourceType": "script",
+    "ecmaVersion": 5,
+    "sourceType": "script"
   },
 }

@@ -3,7 +3,7 @@
 var assign = require('object.assign');
 
 var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
-  strict: false,
+  strict: false
 }];
 
 var defaultTargets = {
@@ -13,7 +13,7 @@ var defaultTargets = {
   explorer: 9,
   firefox: 52,
   safari: 8,
-  ucandroid: 1,
+  ucandroid: 1
 };
 
 function buildTargets(options) {
@@ -31,24 +31,24 @@ module.exports = function buildAirbnbPreset(context, options) {
         exclude: [
           'transform-async-to-generator',
           'transform-es2015-template-literals',
-          'transform-regenerator',
+          'transform-regenerator'
         ],
         modules: false,
-        targets: transpileTargets,
+        targets: transpileTargets
       }),
-      require('babel-preset-react'),
+      require('babel-preset-react')
     ],
     plugins: [
       options && options.modules === false ? null : modules,
       [require('babel-plugin-transform-es2015-template-literals'), {
-        spec: true,
+        spec: true
       }],
       require('babel-plugin-transform-es3-member-expression-literals'),
       require('babel-plugin-transform-es3-property-literals'),
       require('babel-plugin-transform-jscript'),
       [require('babel-plugin-transform-object-rest-spread'), {
-        useBuiltIns: true,
-      }],
-    ].filter(Boolean),
+        useBuiltIns: true
+      }]
+    ].filter(Boolean)
   };
 };

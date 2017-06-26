@@ -27,7 +27,6 @@ module.exports = function buildAirbnbPreset(context, options) {
   return {
     presets: [
       require('babel-preset-env').default(null, {
-        debug: true,
         exclude: [
           'transform-async-to-generator',
           'transform-es2015-template-literals',

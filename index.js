@@ -24,10 +24,12 @@ module.exports = function buildAirbnbPreset(context, options) {
   var transpileTargets = (options && options.targets) ||
     buildTargets(options || {});
 
+  var debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
+
   return {
     presets: [
       require('babel-preset-env').default(null, {
-        debug: true,
+        debug: debug,
         exclude: [
           'transform-async-to-generator',
           'transform-es2015-template-literals',

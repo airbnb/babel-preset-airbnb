@@ -45,6 +45,7 @@ module.exports = function buildAirbnbPreset(context, options) {
       [require('babel-plugin-transform-es2015-template-literals'), {
         spec: true
       }],
+      require('babel-plugin-transform-es5-property-mutators'),
       require('babel-plugin-transform-es3-member-expression-literals'),
       require('babel-plugin-transform-es3-property-literals'),
       require('babel-plugin-transform-jscript'),

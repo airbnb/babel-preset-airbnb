@@ -3,7 +3,7 @@
 var assign = require('object.assign');
 
 var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
-  strict: false
+  strict: true
 }];
 
 var defaultTargets = {

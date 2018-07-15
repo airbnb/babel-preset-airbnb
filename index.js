@@ -43,6 +43,7 @@ module.exports = function buildAirbnbPreset(context, options) {
     ],
     plugins: [
       options && options.modules === false ? null : modules,
+      options && options.modules === false ? null : ['babel-plugin-transform-strict-mode', { strictMode: true }],
       [require('babel-plugin-transform-es2015-template-literals'), {
         spec: true
       }],

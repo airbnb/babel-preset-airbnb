@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.2] - 2018-07-15
+* [Fix] add strict mode for real
+* [Docs] Update for ES2018
+
 ## [2.5.1] - 2018-06-15
 * [Fix] partial revert of #31; set strictMode to true
 

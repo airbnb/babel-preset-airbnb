@@ -22,8 +22,7 @@ function buildTargets(options) {
 }
 
 module.exports = function buildAirbnbPreset(context, options) {
-  var transpileTargets = (options && options.targets) ||
-    buildTargets(options || {});
+  var transpileTargets = (options && options.targets) || buildTargets(options || {});
 
   var debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
 

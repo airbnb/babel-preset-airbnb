@@ -41,6 +41,12 @@ module.exports = function buildAirbnbPreset(context, options) {
       require('babel-preset-react')
     ],
     plugins: [
+      options && !!options.removePropTypes ? ['babel-plugin-transform-react-remove-prop-types', assign({
+        mode: 'wrap',
+        additionalLibraries: ['airbnb-prop-types'],
+        ignoreFilenames: ['node_modules']
+      }, options.removePropTypes)] : null,
+
       options && options.modules === false ? null : modules,
       options && options.modules === false ? null : ['babel-plugin-transform-strict-mode', { strictMode: true }],
       [require('babel-plugin-transform-es2015-template-literals'), {

@@ -99,7 +99,20 @@ You may override our default debug option by providing your own `debug` key.
 
 ## React PropTypes removal
 
-This preset will remove propTypes using [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) with the following default options:
+This preset can be configured to remove propTypes using [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) with the following default options:
+
+
+To enable this transformation with the default options, set the `removePropTypes` option to `true`:
+
+```json
+{
+  "presets": [["airbnb", {
+    "removePropTypes": true
+  }]]
+}
+```
+
+The default options that will be used are:
 
 ```js
 {
@@ -109,18 +122,7 @@ This preset will remove propTypes using [babel-plugin-transform-react-remove-pro
 }
 ```
 
-To disable this transformation, use the `removePropTypes` option:
-
-```json
-{
-  "presets": [["airbnb", {
-    "removePropTypes": false
-  }]]
-}
-```
-
-Default options can be overridden using the `removePropTypes` option. These
-options will be shallow-merged with the defaults:
+Default options can be overridden using the `removePropTypes` option. These options will be shallow-merged with the defaults:
 
 ```json
 {
@@ -132,6 +134,4 @@ options will be shallow-merged with the defaults:
 }
 ```
 
-For example, if you are using this plugin in a deployable app, you might want to
-use the remove mode for your production build (and disable this transform
-entirely in development for optimal build speeds).
+For example, if you are using this plugin in a deployable app, you might want to use the remove mode for your production build (and disable this transform entirely in development for optimal build speeds).

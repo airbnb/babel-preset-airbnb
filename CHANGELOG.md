@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.6.0] - 2018-08-29
+* [New] Add `removePropTypes` option (#36)
+
 ## [2.5.3] - 2018-07-26
 * [Fix] [Deps] add missing `babel-plugin-transform-strict-mode` (#35)
 

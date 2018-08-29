@@ -25,6 +25,7 @@
     "babel-plugin-transform-exponentiation-operator": "^6.24.1",
     "babel-plugin-transform-jscript": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.15",
     "babel-plugin-transform-strict-mode": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",

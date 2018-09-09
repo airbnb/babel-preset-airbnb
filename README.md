@@ -97,6 +97,20 @@ You may override our default debug option by providing your own `debug` key.
 }
 ```
 
+## React Development Mode
+
+When `process.env.NODE_ENV` is `'development'`, [the `development` mode will be set for `@babel/preset-react`](https://babeljs.io/docs/en/babel-preset-react#development).
+
+You may override our default development option by providing your own boolean `development` key.
+
+```json
+{
+  "presets": [["airbnb", {
+    "development": false
+  }]]
+}
+```
+
 ## React PropTypes removal
 
 This preset can be configured to remove propTypes using [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) with the following default options:

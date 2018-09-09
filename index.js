@@ -1,9 +1,6 @@
 'use strict';
 
-const modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
-  strictMode: true, // add "use strict"
-  strict: false, // this allows __esModule to be exported
-}];
+const { declare } = require('@babel/helper-plugin-utils');
 
 const defaultTargets = {
   android: 30,
@@ -15,48 +12,60 @@ const defaultTargets = {
   ucandroid: 1,
 };
 
-function buildTargets(options) {
-  return Object.assign({}, defaultTargets, options.additionalTargets);
+function buildTargets({ additionalTargets }) {
+  return Object.assign({}, defaultTargets, additionalTargets);
 }
 
-module.exports = function buildAirbnbPreset(context, options) {
-  const transpileTargets = (options && options.targets) || buildTargets(options || {});
+module.exports = declare((api, options) => {
+  // see docs about api at https://babeljs.io/docs/en/config-files#apicache
+  api.assertVersion(7);
 
-  const debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
+  const {
+    modules,
+    targets = buildTargets(options),
+    removePropTypes,
+  } = options;
+
+  const debug = typeof options.debug === 'boolean' ? options.debug : false;
 
   return {
     presets: [
-      require('babel-preset-env').default(null, {
+      [require('@babel/preset-env'), {
         debug,
         exclude: [
           'transform-async-to-generator',
-          'transform-es2015-template-literals',
+          'transform-template-literals',
           'transform-regenerator',
         ],
-        modules: false,
-        targets: transpileTargets,
-      }),
-      require('babel-preset-react'),
+        modules: modules === false ? false : {
+          allowTopLevelThis: false,
+          loose: false, // true means, use [[Set]] instead of [[Define]]
+          strict: false, // true means, do not emit __esModule
+          strictMode: true, // === false means, do not force "use strict" pragma to appear
+          noInterop: false, // true means, do not use interopRequireDefault
+          lazy: false, // true means, lazily evaluate imported modules (violates the spec)
+        },
+        targets,
+      }],
+      require('@babel/preset-react'),
     ],
     plugins: [
-      options && !!options.removePropTypes ? ['babel-plugin-transform-react-remove-prop-types', Object.assign({
+      removePropTypes ? [require('babel-plugin-transform-react-remove-prop-types'), Object.assign({
         mode: 'wrap',
         additionalLibraries: ['airbnb-prop-types'],
         ignoreFilenames: ['node_modules'],
-      }, options.removePropTypes)] : null,
+      }, removePropTypes)] : null,
 
-      options && options.modules === false ? null : modules,
-      options && options.modules === false ? null : ['babel-plugin-transform-strict-mode', { strictMode: true }],
-      [require('babel-plugin-transform-es2015-template-literals'), {
+      [require('@babel/plugin-transform-template-literals'), {
         spec: true,
       }],
-      require('babel-plugin-transform-es5-property-mutators'),
-      require('babel-plugin-transform-es3-member-expression-literals'),
-      require('babel-plugin-transform-es3-property-literals'),
-      require('babel-plugin-transform-jscript'),
-      [require('babel-plugin-transform-object-rest-spread'), {
+      require('@babel/plugin-transform-property-mutators'),
+      require('@babel/plugin-transform-member-expression-literals'),
+      require('@babel/plugin-transform-property-literals'),
+      require('@babel/plugin-transform-jscript'),
+      [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],
     ].filter(Boolean),
   };
-};
+});

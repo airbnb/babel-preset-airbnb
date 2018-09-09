@@ -35,16 +35,16 @@ $ babel script.js --presets airbnb
 ### Via Node API
 
 ```javascript
-require("babel-core").transform("code", {
-  presets: ["airbnb"]
+require('@babel/core').transform('code', {
+  presets: ['airbnb']
 });
 ```
 
 ### Targeting Environments
 
-This module uses babel-preset-env to target specific environments.
+This module uses @babel/preset-env to target specific environments.
 
-Please refer to [babel-preset-env#targets](https://github.com/babel/babel-preset-env#targets) for a list of available options.
+Please refer to [@babel/preset-env#targets](https://babeljs.io/docs/en/babel-preset-env#targets) for a list of available options.
 
 For a list of browsers please see [browserlist](https://github.com/ai/browserslist).
 

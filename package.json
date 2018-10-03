@@ -39,7 +39,7 @@
   "scripts": {
     "pretest": "npm run lint",
     "test": "npm run tests-only",
-    "tests-only": "echo 'no tests';",
+    "tests-only": "node . && echo 'parsed successfully'",
     "lint": "eslint ."
   }
 }

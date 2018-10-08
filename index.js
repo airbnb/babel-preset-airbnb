@@ -26,6 +26,10 @@ module.exports = declare((api, options) => {
     removePropTypes,
   } = options;
 
+  if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
+    throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
+  }
+
   const debug = typeof options.debug === 'boolean' ? options.debug : false;
   const development = typeof options.development === 'boolean'
     ? options.development
@@ -40,14 +44,7 @@ module.exports = declare((api, options) => {
           'transform-template-literals',
           'transform-regenerator',
         ],
-        modules: modules === false ? false : {
-          allowTopLevelThis: false,
-          loose: false, // true means, use [[Set]] instead of [[Define]]
-          strict: false, // true means, do not emit __esModule
-          strictMode: true, // === false means, do not force "use strict" pragma to appear
-          noInterop: false, // true means, do not use interopRequireDefault
-          lazy: false, // true means, lazily evaluate imported modules (violates the spec)
-        },
+        modules: modules === false ? false : 'auto',
         targets,
       }],
       [require('@babel/preset-react'), { development }],

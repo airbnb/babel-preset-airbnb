@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-airbnb",
-  "version": "2.6.0",
+  "version": "3.0.0",
   "description": "A babel preset for transforming your JavaScript for Airbnb",
   "main": "index.js",
   "author": "Josh Perez <josh.perez@airbnb.com>",
@@ -35,9 +35,11 @@
     "@babel/core": "^7.0.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "safe-publish-latest": "^1.1.2"
   },
   "scripts": {
+    "prepublish": "safe-publish-latest",
     "pretest": "npm run lint",
     "test": "npm run tests-only",
     "tests-only": "node . && echo 'parsed successfully'",

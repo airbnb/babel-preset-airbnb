@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0] - 2018-10-08
+* [Breaking] update to babel 7 (#37)
+* [New] add support to supply the react preset's "development" option
+
 ## [2.6.0] - 2018-08-29
 * [New] Add `removePropTypes` option (#36)
 

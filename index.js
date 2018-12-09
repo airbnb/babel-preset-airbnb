@@ -18,7 +18,7 @@ function buildTargets({ additionalTargets }) {
 
 module.exports = declare((api, options) => {
   // see docs about api at https://babeljs.io/docs/en/config-files#apicache
-  api.assertVersion(7);
+  api.assertVersion('^7.0.0');
 
   const {
     modules,

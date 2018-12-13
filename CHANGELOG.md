@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.0] - 2018-12-13
+* [New] add `jscript` option to disable JScript transformation (#45)
+
 ## [3.0.1] - 2018-10-08
 * [Fix] the env preset only accepts `false` or a string, not explicit options
 

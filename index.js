@@ -24,8 +24,13 @@ module.exports = declare((api, options) => {
     modules,
     targets = buildTargets(options),
     removePropTypes,
-    jscript = true,
   } = options;
+
+  // jscript option is deprecated in favor of using the explorer target version
+  // TODO: remove this option entirely in the next major release.
+  const jscript = Object.prototype.hasOwnProperty.call(options, 'jscript')
+    ? options.jscript
+    : (targets.explorer >= 6 && targets.explorer <= 8);
 
   if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
     throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');

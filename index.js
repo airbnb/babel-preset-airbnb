@@ -62,7 +62,6 @@ module.exports = declare((api, options) => {
       require('@babel/plugin-transform-property-mutators'),
       require('@babel/plugin-transform-member-expression-literals'),
       require('@babel/plugin-transform-property-literals'),
-      require('@babel/plugin-transform-jscript'),
       [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],

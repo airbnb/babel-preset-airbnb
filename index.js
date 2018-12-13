@@ -24,6 +24,7 @@ module.exports = declare((api, options) => {
     modules,
     targets = buildTargets(options),
     removePropTypes,
+    jscript = true,
   } = options;
 
   if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
@@ -62,6 +63,7 @@ module.exports = declare((api, options) => {
       require('@babel/plugin-transform-property-mutators'),
       require('@babel/plugin-transform-member-expression-literals'),
       require('@babel/plugin-transform-property-literals'),
+      jscript ? require('@babel/plugin-transform-jscript') : null,
       [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],

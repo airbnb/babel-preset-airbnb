@@ -24,6 +24,7 @@ module.exports = declare((api, options) => {
     modules,
     targets = buildTargets(options),
     removePropTypes,
+    looseClasses = false,
   } = options;
 
   // jscript option is deprecated in favor of using the explorer target version
@@ -56,6 +57,10 @@ module.exports = declare((api, options) => {
       [require('@babel/preset-react'), { development }],
     ],
     plugins: [
+      looseClasses ? [require('@babel/plugin-transform-classes'), {
+        loose: true,
+      }] : null,
+
       removePropTypes ? [require('babel-plugin-transform-react-remove-prop-types'), Object.assign({
         mode: 'wrap',
         additionalLibraries: ['airbnb-prop-types'],

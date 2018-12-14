@@ -18,6 +18,7 @@
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-classes": "^7.2.0",
     "@babel/plugin-transform-exponentiation-operator": "^7.0.0",
     "@babel/plugin-transform-jscript": "^7.0.0",
     "@babel/plugin-transform-member-expression-literals": "^7.0.0",

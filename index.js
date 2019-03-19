@@ -9,7 +9,6 @@ const defaultTargets = {
   ie: 9,
   firefox: 52,
   safari: 8,
-  ucandroid: 1,
 };
 
 function buildTargets({ additionalTargets }) {

@@ -55,7 +55,7 @@ You may override our default list of targets by providing your own `targets` key
   "presets": [["airbnb", {
     "targets": {
       "chrome": 50,
-      "explorer": 11,
+      "ie": 11,
       "firefox": 45
     }
   }]]
@@ -81,7 +81,7 @@ If you wish, you can also inherit our default list of browsers and extend them u
   "presets": [["airbnb", {
     "additionalTargets": {
       "chrome": 42,
-      "explorer": 8
+      "ie": 8
     }
   }]]
 }

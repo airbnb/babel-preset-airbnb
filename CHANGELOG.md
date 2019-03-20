@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.2.1] - 2019-03-19
+* [Fix] Correct default targets (explorer -> ie, and remove ucandroid) (#50)
+
 ## [3.2.0] - 2018-12-14
 * [New] add `looseClasses` option to compile classes in loose mode (#46)
 * [New] infer default value of `jscript` option from explorer target version (#47)

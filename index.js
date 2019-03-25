@@ -24,6 +24,9 @@ module.exports = declare((api, options) => {
     targets = buildTargets(options),
     removePropTypes,
     looseClasses = false,
+    looseComputedProperties = false,
+    looseParameters = false,
+    looseTemplateLiterals = false,
   } = options;
 
   // jscript option is deprecated in favor of using the ie target version
@@ -47,7 +50,6 @@ module.exports = declare((api, options) => {
         debug,
         exclude: [
           'transform-async-to-generator',
-          'transform-template-literals',
           'transform-regenerator',
         ],
         modules: modules === false ? false : 'auto',
@@ -60,15 +62,24 @@ module.exports = declare((api, options) => {
         loose: true,
       }] : null,
 
+      looseComputedProperties ? [require('@babel/plugin-transform-computed-properties'), {
+        loose: true,
+      }] : null,
+
+      looseParameters ? [require('@babel/plugin-transform-parameters'), {
+        loose: true,
+      }] : null,
+
+      looseTemplateLiterals ? [require('@babel/plugin-transform-template-literals'), {
+        loose: true,
+      }] : null,
+
       removePropTypes ? [require('babel-plugin-transform-react-remove-prop-types'), Object.assign({
         mode: 'wrap',
         additionalLibraries: ['airbnb-prop-types'],
         ignoreFilenames: ['node_modules'],
       }, removePropTypes)] : null,
 
-      [require('@babel/plugin-transform-template-literals'), {
-        spec: true,
-      }],
       require('@babel/plugin-transform-property-mutators'),
       require('@babel/plugin-transform-member-expression-literals'),
       require('@babel/plugin-transform-property-literals'),

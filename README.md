@@ -150,16 +150,24 @@ Default options can be overridden using the `removePropTypes` option. These opti
 
 For example, if you are using this plugin in a deployable app, you might want to use the remove mode for your production build (and disable this transform entirely in development for optimal build speeds).
 
-## Classes loose mode
+## Selective loose modes
 
-By default, this preset will compile classes in normal mode. This is safer, but comes with a bundle size and runtime overhead. To [compile classes in loose mode](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose), set the `looseClasses` option to `true`:
+By default, this preset will compile everything in normal mode. This is safer, but comes with bundle size and runtime overhead. We have some options to selectively opt in to loose mode for some features. These options are:
+
+- [classes](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose): `looseClasses`
+- [computed properties](https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose): `looseComputedProperties`
+- [parameters](https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose): `looseParameters`
+- [template literals](https://babeljs.io/docs/en/babel-plugin-transform-template-literals#loose): `looseTemplateLiterals`
+
+Example:
 
 ```json
 {
   "presets": [["airbnb", {
     "looseClasses": true,
+    "looseComputedProperties": true,
+    "looseParameters": true,
+    "looseTemplateLiterals": true,
   }]]
 }
 ```
-
-The [risks of enabling loose classes are outlined in the Babel docs](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose).

@@ -76,6 +76,13 @@ module.exports = declare((api, options) => {
       [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],
+      [require('@babel/plugin-transform-runtime'), {
+        absoluteRuntime: false,
+        corejs: false,
+        helpers: true,
+        regenerator: false,
+        useESModules: !modules,
+      }],
     ].filter(Boolean),
   };
 });

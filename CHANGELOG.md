@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.3.0] - 2019.06.18
+* [New] Use @babel/plugin-transform-runtime for helpers
+
 ## [3.2.1] - 2019-03-19
 * [Fix] Correct default targets (explorer -> ie, and remove ucandroid) (#50)
 

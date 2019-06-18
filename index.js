@@ -36,6 +36,8 @@ module.exports = declare((api, options) => {
     throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
   }
 
+  const computedModulesOption = modules === false ? false : 'auto';
+
   const debug = typeof options.debug === 'boolean' ? options.debug : false;
   const development = typeof options.development === 'boolean'
     ? options.development
@@ -50,7 +52,7 @@ module.exports = declare((api, options) => {
           'transform-template-literals',
           'transform-regenerator',
         ],
-        modules: modules === false ? false : 'auto',
+        modules: computedModulesOption,
         targets,
       }],
       [require('@babel/preset-react'), { development }],
@@ -81,7 +83,7 @@ module.exports = declare((api, options) => {
         corejs: false,
         helpers: true,
         regenerator: false,
-        useESModules: !modules,
+        useESModules: !computedModulesOption,
       }],
     ].filter(Boolean),
   };

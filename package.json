@@ -14,7 +14,7 @@
     "es2015",
     "javascript"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",

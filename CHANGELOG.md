@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.1] - 2019.06.26
+* update license to MIT
+
 ## [4.0.0] - 2019.06.18
 * restore breaking changes from v3.3.0 and v3.3.1
 

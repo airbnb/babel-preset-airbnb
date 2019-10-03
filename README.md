@@ -163,3 +163,21 @@ By default, this preset will compile classes in normal mode. This is safer, but 
 ```
 
 The [risks of enabling loose classes are outlined in the Babel docs](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose).
+
+## Specifying a babel runtime version
+
+By default @babel/plugin-transform-runtime will [assume the oldest version of the runtime](https://github.com/babel/babel/blob/e6264a09921c60b8f18870d0a75678e4fa04f0f8/packages/babel-plugin-transform-runtime/src/index.js#L42) to avoid importing helpers that don't exist which would fail at runtime. This can result in newer helpers being inlined into modules (ex. objectSpread2) which increases bundle size.
+
+To avoid this you can configure the preset to use the same version of the runtime that's installed in your package.json.
+
+ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
+
+```json
+{
+  "presets": [["airbnb", {
+    "runtimeVersion": "7.5.5",
+  }]]
+}
+```
+
+Note that this will result in a runtime breakage if the version passed into the airbnb preset is newer than the version of the babel runtime actually being used at build time.

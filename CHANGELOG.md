@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.2.0] - 2019.11.14
+* [New] Add `@babel/plugin-proposal-nullish-coalescing-operator` and `@babel/plugin-proposal-optional-chaining` (#58)
+
 ## [4.1.0] - 2019.10.3
 * [New] Allow specifying the Babel runtime version
 

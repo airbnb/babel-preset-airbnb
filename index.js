@@ -25,7 +25,7 @@ module.exports = declare((api, options) => {
     removePropTypes,
     looseClasses = false,
     runtimeVersion,
-    useESModules = !modules,
+    runtimeHelpersUseESModules = !modules,
   } = options;
 
   // jscript option is deprecated in favor of using the ie target version
@@ -85,7 +85,7 @@ module.exports = declare((api, options) => {
         corejs: false,
         helpers: true,
         regenerator: false,
-        useESModules,
+        useESModules: runtimeHelpersUseESModules,
         version: runtimeVersion,
       }],
     ].filter(Boolean),

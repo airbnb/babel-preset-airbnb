@@ -196,14 +196,14 @@ You can use the `modules` option to enable transformation of modules given to th
 
 Both `true` and the option default `auto` will not transform modules if ES6 module syntax is already supported by the environment, or `"commonjs"` otherwise. `false` will not transform modules.
 
-You can use the `useESModules` option to prevent transformation of runtime helpers to CommonJS modules.
+You can use the `runtimeHelpersUseESModules` option to prevent transformation of runtime helpers to CommonJS modules.
 
 ```json
 {
   "presets": [["airbnb", {
-    "useESModules": true
+    "runtimeHelpersUseESModules": true
   }]]
 }
 ```
 
-`true` will not transform runtime helpers to CommonJS modules. The option default `false` will transform runtime helpers to CommonJS modules.
+`true` will not transform runtime helpers to CommonJS modules. `false` will transform runtime helpers to CommonJS modules. The option defaults to `true` if `modules` is set to `false`, and `false` otherwise.

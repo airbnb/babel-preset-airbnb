@@ -25,6 +25,7 @@ module.exports = declare((api, options) => {
     removePropTypes,
     looseClasses = false,
     runtimeVersion,
+    useESModules = false,
   } = options;
 
   // jscript option is deprecated in favor of using the ie target version
@@ -36,8 +37,6 @@ module.exports = declare((api, options) => {
   if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
     throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
   }
-
-  const computedModulesOption = modules === false ? false : 'auto';
 
   const debug = typeof options.debug === 'boolean' ? options.debug : false;
   const development = typeof options.development === 'boolean'
@@ -53,7 +52,7 @@ module.exports = declare((api, options) => {
           'transform-template-literals',
           'transform-regenerator',
         ],
-        modules: computedModulesOption,
+        modules: modules === false ? false : 'auto',
         targets,
       }],
       [require('@babel/preset-react'), { development }],
@@ -86,7 +85,7 @@ module.exports = declare((api, options) => {
         corejs: false,
         helpers: true,
         regenerator: false,
-        useESModules: !computedModulesOption,
+        useESModules,
         version: runtimeVersion,
       }],
     ].filter(Boolean),

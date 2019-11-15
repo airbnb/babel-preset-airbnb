@@ -181,3 +181,29 @@ ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
 ```
 
 Note that this will result in a runtime breakage if the version passed into the airbnb preset is newer than the version of the babel runtime actually being used at build time.
+
+## Specifying module transforms
+
+You can use the `modules` option to enable transformation of modules given to this preset:
+
+```json
+{
+  "presets": [["airbnb", {
+    "modules": "auto"
+  }]]
+}
+```
+
+Both `true` and the option default `auto` will not transform modules if ES6 module syntax is already supported by the environment, or `"commonjs"` otherwise. `false` will not transform modules.
+
+You can use the `useESModules` option to prevent transformation of runtime helpers to CommonJS modules.
+
+```json
+{
+  "presets": [["airbnb", {
+    "useESModules": true
+  }]]
+}
+```
+
+`true` will not transform runtime helpers to CommonJS modules. The option default `false` will transform runtime helpers to CommonJS modules.

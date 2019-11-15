@@ -20,12 +20,12 @@ module.exports = declare((api, options) => {
   api.assertVersion('^7.0.0');
 
   const {
-    modules,
+    modules = 'auto',
     targets = buildTargets(options),
     removePropTypes,
     looseClasses = false,
     runtimeVersion,
-    useESModules = false,
+    useESModules = !modules,
   } = options;
 
   // jscript option is deprecated in favor of using the ie target version
@@ -34,7 +34,7 @@ module.exports = declare((api, options) => {
     ? options.jscript
     : (targets.ie >= 6 && targets.ie <= 8);
 
-  if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
+  if (typeof modules !== 'boolean' && modules !== 'auto') {
     throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
   }
 

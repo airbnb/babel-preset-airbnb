@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.3.0] - 2019.11.15
+* [New] Add `runtimeHelpersUseESModules` option (#59)
+
 ## [4.2.0] - 2019.11.14
 * [New] Add `@babel/plugin-proposal-nullish-coalescing-operator` and `@babel/plugin-proposal-optional-chaining` (#58)
 

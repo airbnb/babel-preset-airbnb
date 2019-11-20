@@ -26,6 +26,7 @@ module.exports = declare((api, options) => {
     looseClasses = false,
     runtimeVersion,
     runtimeHelpersUseESModules = !modules,
+    transformRuntime = true,
   } = options;
 
   // jscript option is deprecated in favor of using the ie target version
@@ -80,14 +81,14 @@ module.exports = declare((api, options) => {
       [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],
-      [require('@babel/plugin-transform-runtime'), {
+      transformRuntime ? [require('@babel/plugin-transform-runtime'), {
         absoluteRuntime: false,
         corejs: false,
         helpers: true,
         regenerator: false,
         useESModules: runtimeHelpersUseESModules,
         version: runtimeVersion,
-      }],
+      }] : null,
     ].filter(Boolean),
   };
 });

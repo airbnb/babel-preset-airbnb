@@ -184,7 +184,7 @@ Note that this will result in a runtime breakage if the version passed into the 
 
 ## Disabling `plugin-transform-runtime`
 
-You can use the `transformRuntime` option to disable [`@babel/plugin-transform-runtime`](https://babeljs.io/docs/en/babel-plugin-transform-runtime). Specifying `false` will disable the plugin.
+You can use the `transformRuntime` option to disable [`@babel/plugin-transform-runtime`](https://babeljs.io/docs/en/babel-plugin-transform-runtime). Specifying `false` will disable the plugin. This option defaults to `true`.
 
 ## Specifying module transforms
 

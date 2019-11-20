@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.4.0] - 2019.11.20
+* [New] Add `transformRuntime` option (#60)
+
 ## [4.3.0] - 2019.11.15
 * [New] Add `runtimeHelpersUseESModules` option (#59)
 

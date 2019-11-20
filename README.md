@@ -182,6 +182,10 @@ ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
 
 Note that this will result in a runtime breakage if the version passed into the airbnb preset is newer than the version of the babel runtime actually being used at build time.
 
+## Disabling `plugin-transform-runtime`
+
+You can use the `transformRuntime` option to disable [`@babel/plugin-transform-runtime`](https://babeljs.io/docs/en/babel-plugin-transform-runtime). Specifying `false` will disable the plugin. This option defaults to `true`.
+
 ## Specifying module transforms
 
 You can use the `modules` option to enable transformation of modules given to this preset:

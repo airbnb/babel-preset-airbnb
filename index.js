@@ -29,12 +29,6 @@ module.exports = declare((api, options) => {
     transformRuntime = true,
   } = options;
 
-  // jscript option is deprecated in favor of using the ie target version
-  // TODO: remove this option entirely in the next major release.
-  const jscript = Object.prototype.hasOwnProperty.call(options, 'jscript')
-    ? options.jscript
-    : (targets.ie >= 6 && targets.ie <= 8);
-
   if (typeof modules !== 'boolean' && modules !== 'auto') {
     throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
   }
@@ -79,7 +73,6 @@ module.exports = declare((api, options) => {
       require('@babel/plugin-proposal-numeric-separator'),
       require('@babel/plugin-proposal-optional-catch-binding'),
       require('@babel/plugin-proposal-optional-chaining'),
-      jscript ? require('@babel/plugin-transform-jscript') : null,
       [require('@babel/plugin-proposal-object-rest-spread'), {
         useBuiltIns: true,
       }],

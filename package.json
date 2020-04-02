@@ -24,7 +24,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/plugin-transform-classes": "^7.9.2",
     "@babel/plugin-transform-exponentiation-operator": "^7.8.3",
-    "@babel/plugin-transform-jscript": "^7.8.3",
     "@babel/plugin-transform-member-expression-literals": "^7.8.3",
     "@babel/plugin-transform-property-literals": "^7.8.3",
     "@babel/plugin-transform-property-mutators": "^7.8.3",

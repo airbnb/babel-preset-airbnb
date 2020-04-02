@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0] - 2020.04.02
+* [Breaking] Update browser targets: Chrome 35 -> 40, Edge 14 -> 18, IE 9 -> 11, Firefox 52 -> 72, Safari 8 -> 12, Android 30 -> 35.
+* [Breaking] Removed JScript support (IE 6-8).
+
 ## [4.5.0] - 2020.04.02
 * [New] Add `@babel/plugin-proposal-numeric-separator` and `@babel/plugin-proposal-optional-catch-binding` (#62)
 * [Deps] Update all to latest versions.

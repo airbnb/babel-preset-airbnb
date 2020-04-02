@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.5.0] - 2020.04.02
+* [New] Add `@babel/plugin-proposal-numeric-separator` and `@babel/plugin-proposal-optional-catch-binding` (#62)
+* [Deps] Update all to latest versions.
+
 ## [4.4.0] - 2019.11.20
 * [New] Add `transformRuntime` option (#60)
 
